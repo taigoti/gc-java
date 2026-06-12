@@ -1,6 +1,8 @@
 package br.com.taigoti.watchme.models;
 
-public class Series extends Title {
+import br.com.taigoti.watchme.calculus.Rate;
+
+public class Series extends Title implements Rate {
     int seasons;
     int episodesPerSeason;
 

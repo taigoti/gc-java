@@ -1,6 +1,8 @@
 package br.com.taigoti.watchme.models;
 
-public class Movie extends Title{
+import br.com.taigoti.watchme.calculus.Rate;
+
+public class Movie extends Title implements Rate {
     String writer;
 
     public String getWriter() {
