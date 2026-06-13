@@ -1,6 +1,7 @@
 import br.com.taigoti.models.Album;
 import br.com.taigoti.models.Artist;
 import br.com.taigoti.models.Music;
+import br.com.taigoti.models.PodcastEpisode;
 
 public class Main {
     static void main(String[] args) {
@@ -13,5 +14,13 @@ public class Main {
         esquinas.setAudios(sapato);
         esquinas.setAudios(minto);
         System.out.println(esquinas.getAudios());
+
+        System.out.println("\n*****************************\n");
+
+        Artist tresIrmaos = new Artist("Três Irmãos");
+        PodcastEpisode ep1 = new PodcastEpisode("Direita é melhor que marxismo?", tresIrmaos, 3, "Extrema direita X Marxismo");
+        ep1.setGuests("Gustavo Machado");
+        ep1.setGuests("Paulo Kogos");
+        ep1.getInfos();
     }
 }
