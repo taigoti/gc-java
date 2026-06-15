@@ -9,22 +9,36 @@ import java.util.Scanner;
 
 public class APISearch {
     static void main(String[] args) throws IOException, InterruptedException {
+        String keyword = inputKey();
+        String APIurl = "https://www.omdbapi.com/?t=" + keyword + "&apikey=575cebe0";
+
+        HttpClient client = HttpClient.newHttpClient();
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create(APIurl))
+                .build();
+        HttpResponse<String> response = client
+                .send(request, HttpResponse.BodyHandlers.ofString());
+
+        System.out.println(response.body());
+    }
+
+    public static String inputKey() {
         Scanner sc = new Scanner(System.in);
+
         System.out.println("Digite o nome do filme:");
         String key = sc.nextLine();
 
-        while (key.isEmpty()) {
-            System.out.println("Digite o nome do seu filme!\n");
+        boolean emptyInput = key.isEmpty();
+        while (emptyInput) {
+            System.out.println("Digite o nome do seu filme!");
+            key = sc.nextLine();
+            emptyInput = key.isEmpty();
         }
 
-        String APIurl = "https://www.omdbapi.com/?t=" + key + "&apikey=575cebe0";
+        if(key.contains(" ")) {
+            key = key.replace(" ", "+");
+        }
 
-        HttpClient client =  HttpClient.newHttpClient();
-        HttpRequest  request = HttpRequest.newBuilder()
-                .uri(URI.create(APIurl))
-                .build();
-        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
-
-        System.out.println(response.body());
+        return key;
     }
 }
