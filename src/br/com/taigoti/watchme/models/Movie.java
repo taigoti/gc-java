@@ -1,22 +1,13 @@
 package br.com.taigoti.watchme.models;
 
-import br.com.taigoti.watchme.calculus.Rate;
 
-public class Movie extends Title implements Rate {
-    String writer;
+public class Movie extends Title {
+    private String director;
+    private String roletime;
 
-    public String getWriter() {
-        return writer;
-    }
-
-    public void setWriter(String writer) {
-        this.writer = writer;
-    }
-
-    @Override
-    public void getInfos() {
-        super.getInfos();
-        System.out.println("Duration: " + duration);
-        System.out.println("Writer: " + writer);
+    public Movie(String name, String genre, int year, double rating,  String director, String roletime) {
+        super(name, genre, year, rating);
+        this.director = director;
+        this.roletime = roletime;
     }
 }
