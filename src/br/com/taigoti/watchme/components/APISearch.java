@@ -8,7 +8,7 @@ import java.net.http.HttpResponse;
 import java.util.Scanner;
 
 public class APISearch {
-    static void main(String[] args) throws IOException, InterruptedException {
+    public void initSearch() throws IOException, InterruptedException {
         String keyword = inputKey();
         String APIurl = "https://www.omdbapi.com/?t=" + keyword + "&apikey=575cebe0";
 
@@ -22,7 +22,7 @@ public class APISearch {
         System.out.println(response.body());
     }
 
-    public static String inputKey() {
+    private String inputKey() {
         Scanner sc = new Scanner(System.in);
 
         System.out.println("Digite o nome do filme:");
