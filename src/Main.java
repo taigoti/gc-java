@@ -1,12 +1,15 @@
-import br.com.taigoti.watchme.components.APISearch;
-import br.com.taigoti.watchme.components.Menu;
+import br.com.taigoti.watchme.controllers.api.APISearch;
+import br.com.taigoti.watchme.view.Menu;
 
 import java.io.IOException;
 
 public class Main {
     static void main(String[] args) throws IOException, InterruptedException {
         Menu menu = new Menu();
+        menu.showMenu();
+        String keyword = menu.insertKey();
+
         APISearch search = new APISearch();
-        search.initSearch();
+        search.initSearch(keyword);
     }
 }
