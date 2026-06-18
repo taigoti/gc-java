@@ -1,7 +1,10 @@
 package br.com.taigoti.watchme.controllers.api;
 
 import br.com.taigoti.watchme.models.Movie;
+import br.com.taigoti.watchme.models.TitleOmdb;
+import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 import java.io.IOException;
 import java.net.URI;
@@ -21,8 +24,14 @@ public class APISearch {
                 .send(request, HttpResponse.BodyHandlers.ofString());
 
         String json = response.body();
-        Gson gson = new Gson();
-        Movie myMovie = gson.fromJson(json, Movie.class);
+        Gson gson = new GsonBuilder()
+                .setFieldNamingPolicy(FieldNamingPolicy.UPPER_CAMEL_CASE)
+                .create();
+
+        TitleOmdb myMovieOmdb = gson.fromJson(json, TitleOmdb.class);
+        Movie myMovie = new Movie(myMovieOmdb);
+
+        System.out.println(json);
         System.out.println(myMovie);
     }
 }

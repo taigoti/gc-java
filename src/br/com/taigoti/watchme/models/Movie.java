@@ -4,15 +4,13 @@ package br.com.taigoti.watchme.models;
 import com.google.gson.annotations.SerializedName;
 
 public class Movie extends Title {
-    @SerializedName("Director")
     private String director;
-    @SerializedName("Runtime")
     private String runtime;
 
-    public Movie(String name, String genre, int year, double rating,  String director, String runtime) {
-        super(name, genre, year, rating);
-        this.director = director;
-        this.runtime = runtime;
+    public Movie(TitleOmdb title) {
+        super(title);
+        this.director = title.director();
+        this.runtime = title.runtime();
     }
 
     public String getDirector() {
