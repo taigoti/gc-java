@@ -29,9 +29,15 @@ public class APISearch {
                 .create();
 
         TitleOmdb myMovieOmdb = gson.fromJson(json, TitleOmdb.class);
-        Movie myMovie = new Movie(myMovieOmdb);
 
-        System.out.println(json);
-        System.out.println(myMovie);
+        try{
+            Movie myMovie = new Movie(myMovieOmdb);
+
+            System.out.println(json);
+            System.out.println(myMovie);
+        } catch (NumberFormatException e) {
+            System.out.println("Ocorreu um erro!");
+            System.out.println(e.getMessage());
+        }
     }
 }
