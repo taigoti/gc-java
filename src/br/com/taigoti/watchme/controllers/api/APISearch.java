@@ -1,5 +1,8 @@
 package br.com.taigoti.watchme.controllers.api;
 
+import br.com.taigoti.watchme.models.Movie;
+import com.google.gson.Gson;
+
 import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
@@ -17,6 +20,9 @@ public class APISearch {
         HttpResponse<String> response = client
                 .send(request, HttpResponse.BodyHandlers.ofString());
 
-        System.out.println(response.body());
+        String json = response.body();
+        Gson gson = new Gson();
+        Movie myMovie = gson.fromJson(json, Movie.class);
+        System.out.println(myMovie);
     }
 }

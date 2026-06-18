@@ -8,4 +8,8 @@ public class Series extends Title {
     public Series(String name, String genre, int year, double rating) {
         super(name, genre, year, rating);
     }
+
+    public ArrayList<Season> getSeasons() {
+        return seasons;
+    }
 }
