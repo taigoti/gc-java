@@ -13,13 +13,18 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
 public class APISearch {
-    public void initSearch(String keyword) throws IOException, InterruptedException {
+    public void initSearch(String keyword) {
         String APIurl = "https://www.omdbapi.com/?t=" + keyword + "&apikey=575cebe0";
 
-        String json = initJsonRequest(APIurl);
+        try {
+            String json = initJsonRequest(APIurl);
 
-        TitleOmdb myMovieOmdb = gsonBuild(json);
-        createDTO(myMovieOmdb);
+            TitleOmdb myMovieOmdb = gsonBuild(json);
+            createDTO(myMovieOmdb);
+        }
+        catch (IOException | InterruptedException e) {
+            System.out.println("Ocorreu um problema!");
+        }
     }
 
     private String initJsonRequest(String URL) throws IOException, InterruptedException {

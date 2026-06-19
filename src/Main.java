@@ -4,7 +4,7 @@ import br.com.taigoti.watchme.view.Menu;
 import java.io.IOException;
 
 public class Main {
-    static void main(String[] args) throws IOException, InterruptedException {
+    static void main(String[] args) {
         Menu menu = new Menu();
         menu.showMenu();
         String keyword = menu.insertKey();
