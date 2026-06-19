@@ -13,29 +13,48 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
 public class APISearch {
-    public void initSearch(String keyword) throws IOException, InterruptedException {
+    public void initSearch(String keyword) {
         String APIurl = "https://www.omdbapi.com/?t=" + keyword + "&apikey=575cebe0";
 
+        try {
+            String json = initJsonRequest(APIurl);
+
+            TitleOmdb myMovieOmdb = gsonBuild(json);
+            createDTO(myMovieOmdb);
+        }
+        catch (IOException | InterruptedException e) {
+            System.out.println("Ocorreu um problema!");
+        }
+    }
+
+    private String initJsonRequest(String URL) throws IOException, InterruptedException {
         HttpClient client = HttpClient.newHttpClient();
+
         HttpRequest request = HttpRequest.newBuilder()
-                .uri(URI.create(APIurl))
+                .uri(URI.create(URL))
                 .build();
+
         HttpResponse<String> response = client
                 .send(request, HttpResponse.BodyHandlers.ofString());
 
-        String json = response.body();
+        return response.body();
+    }
+
+    private TitleOmdb gsonBuild(String json) {
         Gson gson = new GsonBuilder()
                 .setFieldNamingPolicy(FieldNamingPolicy.UPPER_CAMEL_CASE)
                 .create();
 
-        TitleOmdb myMovieOmdb = gson.fromJson(json, TitleOmdb.class);
+        return gson.fromJson(json, TitleOmdb.class);
+    }
 
-        try{
-            Movie myMovie = new Movie(myMovieOmdb);
+    private void createDTO(TitleOmdb titleOmdb) {
+        try {
+            Movie myMovie = new Movie(titleOmdb);
 
-            System.out.println(json);
             System.out.println(myMovie);
-        } catch (NumberFormatException e) {
+        }
+        catch (NumberFormatException e) {
             System.out.println("Ocorreu um erro!");
             System.out.println(e.getMessage());
         }
