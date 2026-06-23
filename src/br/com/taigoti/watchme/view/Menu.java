@@ -13,33 +13,9 @@ public class Menu {
         System.out.println(template);
     }
 
-    public String insertKey() {
-        String keyword = inputKey();
-        keyword = keyTratament(keyword);
+    public String getKeyword() {
+        KeywordTreatment keyword = new KeywordTreatment();
 
-        return keyword;
-    }
-
-    private String inputKey() {
-        Scanner sc = new Scanner(System.in);
-
-        return sc.nextLine();
-    }
-
-    private String keyTratament(String key) {
-        boolean emptyInput = key.isEmpty();
-
-        while (emptyInput) {
-            System.out.println("Por favor, digite o nome do filme!");
-
-            key = inputKey();
-            emptyInput = key.isEmpty();
-        }
-
-        if(key.contains(" ")) {
-            key = key.replace(" ", "+");
-        }
-
-        return key;
+        return keyword.insertKey();
     }
 }
