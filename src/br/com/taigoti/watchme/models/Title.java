@@ -3,14 +3,14 @@ package br.com.taigoti.watchme.models;
 public class Title {
     protected String name;
     protected String genre;
-    protected int year;
-    protected double rating;
+    protected String year;
+    protected String rating;
 
     public Title(TitleOmdb title) {
         this.name = title.title();
         this.genre = title.genre();
-        this.year = Integer.parseInt(title.year());
-        this.rating = Double.parseDouble(title.metascore());
+        this.year = title.year();
+        this.rating = title.metascore();
     }
 
     public String getName() {
@@ -21,11 +21,21 @@ public class Title {
         return genre;
     }
 
-    public int getYear() {
+    public String getYear() {
         return year;
     }
 
-    public double getRating() {
+    public String getRating() {
         return rating;
+    }
+
+    @Override
+    public String toString() {
+        return "Title{" +
+                "name='" + name + '\'' +
+                ", genre='" + genre + '\'' +
+                ", year='" + year + '\'' +
+                ", rating=" + rating +
+                '}';
     }
 }

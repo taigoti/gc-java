@@ -12,4 +12,15 @@ public class Series extends Title {
     public ArrayList<Season> getSeasons() {
         return seasons;
     }
+
+    @Override
+    public String toString() {
+        return "Series{" +
+                "seasons=" + seasons +
+                ", name='" + name + '\'' +
+                ", genre='" + genre + '\'' +
+                ", year='" + year + '\'' +
+                ", rating=" + rating +
+                '}';
+    }
 }

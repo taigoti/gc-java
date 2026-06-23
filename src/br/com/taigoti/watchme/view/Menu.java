@@ -1,14 +1,12 @@
 package br.com.taigoti.watchme.view;
 
-import java.util.Scanner;
-
 public class Menu {
     public void showMenu() {
         String template = """
                 Bem vindo ao WatchMe!
-                Você pode consultar as informações de qualquer filme.
+                Você pode consultar as informações de qualquer filme ou série.
                 
-                Digite aqui seu filme:
+                Digite aqui o que você quer assistir:
                 """;
         System.out.println(template);
     }
