@@ -18,9 +18,7 @@ public class DTO {
     }
 
     private TitleOmdb buildDTO(String json) {
-        Gson gson = new GsonBuilder()
-                .setFieldNamingPolicy(FieldNamingPolicy.UPPER_CAMEL_CASE)
-                .create();
+        Gson gson = new GsonBuilder().create();
 
         return gson.fromJson(json, TitleOmdb.class);
     }

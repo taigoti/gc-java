@@ -25,6 +25,6 @@ public class JsonRequest {
         HttpResponse<String> response = client
                 .send(request, HttpResponse.BodyHandlers.ofString());
 
-        return response.body();
+        return response.body().toLowerCase();
     }
 }

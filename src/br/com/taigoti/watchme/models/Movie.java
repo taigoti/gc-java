@@ -1,8 +1,5 @@
 package br.com.taigoti.watchme.models;
 
-
-import com.google.gson.annotations.SerializedName;
-
 public class Movie extends Title {
     private String director;
     private String runtime;
@@ -29,6 +26,7 @@ public class Movie extends Title {
                 " , year: " + year +
                 " , rating: " + rating +
                 " , director: " + director +
+                " , writer: " + writer +
                 " , runtime: " + runtime +
                 '}';
     }
