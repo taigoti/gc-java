@@ -1,26 +1,22 @@
 package br.com.taigoti.watchme.models;
 
-import java.util.ArrayList;
-
 public class Series extends Title {
-    private ArrayList<Season> seasons = new ArrayList<>();
+    private String seasons;
 
     public Series(TitleOmdb title) {
         super(title);
-    }
-
-    public ArrayList<Season> getSeasons() {
-        return seasons;
+        this.seasons = title.totalseasons();
     }
 
     @Override
     public String toString() {
         return "Series{" +
-                "seasons=" + seasons +
-                ", name='" + name + '\'' +
-                ", genre='" + genre + '\'' +
-                ", year='" + year + '\'' +
-                ", rating=" + rating +
+                "name: '" + name + '\'' +
+                ", genre: '" + genre + '\'' +
+                ", year: '" + year + '\'' +
+                ", rating: " + rating +
+                ", writer: " +  writer +
+                ", seasons:" + seasons +
                 '}';
     }
 }

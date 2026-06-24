@@ -26,6 +26,7 @@ public class Movie extends Title {
                 " , year: " + year +
                 " , rating: " + rating +
                 " , director: " + director +
+                " , writer: " + writer +
                 " , runtime: " + runtime +
                 '}';
     }

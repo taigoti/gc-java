@@ -5,12 +5,14 @@ public class Title {
     protected String genre;
     protected String year;
     protected String rating;
+    protected String writer;
 
     public Title(TitleOmdb title) {
         this.name = title.title();
         this.genre = title.genre();
         this.year = title.year();
-        this.rating = title.metascore();
+        this.rating = title.imdbrating();
+        this.writer = title.writer();
     }
 
     public String getName() {
