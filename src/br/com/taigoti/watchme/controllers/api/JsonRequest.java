@@ -11,6 +11,7 @@ public class JsonRequest {
         try{
             return queryJson(URL);
         } catch (IOException | InterruptedException e) {
+            System.out.println("Ocorreu um erro!");
             return "ERROR: Json request failed";
         }
     }

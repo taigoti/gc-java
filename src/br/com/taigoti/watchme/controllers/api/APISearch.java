@@ -13,11 +13,10 @@ public class APISearch {
         TitleOmdb titleOmdb = dto.createDTO(rawJson);
 
         try{
-            System.out.println(rawJson);
-
             entity.buildEntity(titleOmdb);
         }
         catch (Exception e){
+            System.out.println("Ocorreu um erro!");
             System.out.println("ERROR: " + e.getMessage());
         }
     }
