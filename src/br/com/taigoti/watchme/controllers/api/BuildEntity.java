@@ -17,7 +17,5 @@ public class BuildEntity {
             Series myTitle = new Series(titleOmdb);
             System.out.println(myTitle);
         }
-
-        System.out.println("Entity type: " + titleType);
     }
 }

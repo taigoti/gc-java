@@ -10,6 +10,21 @@ public class KeywordTreatment {
         return keyword;
     }
 
+    protected String continueSearch() {
+        String yesOrNo = inputKey();
+        yesOrNo = yesOrNo.toLowerCase();
+
+        while(true){
+            if(yesOrNo.equals("s") || yesOrNo.equals("n")) {
+                return yesOrNo;
+            }
+
+            System.out.println("Digite 's' ou 'n'!!!");
+            yesOrNo = inputKey();
+            yesOrNo = yesOrNo.toLowerCase();
+        }
+    }
+
     private String inputKey() {
         Scanner sc = new Scanner(System.in);
 

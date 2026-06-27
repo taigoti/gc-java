@@ -1,19 +1,26 @@
 package br.com.taigoti.watchme.view;
 
 public class Menu {
+    KeywordTreatment keyword = new KeywordTreatment();
+
     public void showMenu() {
-        String template = """
+        String defaultTemplate = """
                 Bem vindo ao WatchMe!
                 Você pode consultar as informações de qualquer filme ou série.
                 
                 Digite aqui o que você quer assistir:
                 """;
-        System.out.println(template);
+        System.out.println(defaultTemplate);
     }
 
     public String getKeyword() {
-        KeywordTreatment keyword = new KeywordTreatment();
-
         return keyword.insertKey();
+    }
+
+    public String continueSearch() {
+        String continueTemplate = "Quer procurar outro filme/série? (s/n)";
+        System.out.println(continueTemplate);
+
+        return keyword.continueSearch();
     }
 }
