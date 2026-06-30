@@ -5,11 +5,14 @@ public class Menu {
 
     public void showMenu() {
         String defaultTemplate = """
+                *********************************************************************
+                
                 Bem vindo ao WatchMe!
                 Você pode consultar as informações de qualquer filme ou série.
                 
-                Digite aqui o que você quer assistir:
-                """;
+                *********************************************************************
+                
+                Digite aqui o que você quer assistir:""";
         System.out.println(defaultTemplate);
     }
 
@@ -18,7 +21,7 @@ public class Menu {
     }
 
     public String continueSearch() {
-        String continueTemplate = "Quer procurar outro filme/série? (s/n)";
+        String continueTemplate = "\nQuer procurar outro filme/série? (s/n)";
         System.out.println(continueTemplate);
 
         return keyword.continueSearch();

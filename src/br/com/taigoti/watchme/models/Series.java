@@ -10,13 +10,13 @@ public class Series extends Title {
 
     @Override
     public String toString() {
-        return "Series{" +
-                "name: '" + name + '\'' +
-                ", genre: '" + genre + '\'' +
-                ", year: '" + year + '\'' +
-                ", rating: " + rating +
-                ", writer: " +  writer +
-                ", seasons:" + seasons +
-                '}';
+        return "**********************************" +
+                "Series name: " + name +
+                ",\nGenre: '" + genre +
+                ",\nYear: '" + year +
+                ",\nRating: " + rating +
+                ",\nWriter: " +  writer +
+                ",\nSeasons:" + seasons +
+                "\n**********************************";
     }
 }

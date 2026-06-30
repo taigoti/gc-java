@@ -33,11 +33,9 @@ public class Title {
 
     @Override
     public String toString() {
-        return "Title{" +
-                "name='" + name + '\'' +
-                ", genre='" + genre + '\'' +
-                ", year='" + year + '\'' +
-                ", rating=" + rating +
-                '}';
+        return "Title name: " + name +
+                ",\n Genre: " + genre +
+                ",\n Year: " + year +
+                ",\n Rating: " + rating;
     }
 }

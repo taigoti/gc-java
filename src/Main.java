@@ -14,11 +14,15 @@ public class Main {
             String willContinue = menu.continueSearch();
 
             if(willContinue.equals("n")) {
+                System.out.println("\n*************************************");
                 System.out.println("Até mais!");
+                System.out.println("*************************************\n");
                 break;
             }
 
-            System.out.println("Digite o que quer buscar:");
+            System.out.println("\nnDigite o que quer buscar:");
+
+
             search.initSearch(menu.getKeyword());
         }
     }

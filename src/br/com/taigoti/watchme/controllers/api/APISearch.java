@@ -1,5 +1,6 @@
 package br.com.taigoti.watchme.controllers.api;
 
+import br.com.taigoti.watchme.models.Title;
 import br.com.taigoti.watchme.models.TitleOmdb;
 
 public class APISearch {
@@ -13,7 +14,8 @@ public class APISearch {
         TitleOmdb titleOmdb = dto.createDTO(rawJson);
 
         try{
-            entity.buildEntity(titleOmdb);
+            Title infos = entity.buildEntity(titleOmdb);
+            System.out.println(infos);
         }
         catch (Exception e){
             System.out.println("Ocorreu um erro!");

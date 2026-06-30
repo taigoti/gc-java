@@ -20,14 +20,14 @@ public class Movie extends Title {
 
     @Override
     public String toString() {
-        return "Movie{" +
-                "title: " + name +
-                " , genre: " + genre +
-                " , year: " + year +
-                " , rating: " + rating +
-                " , director: " + director +
-                " , writer: " + writer +
-                " , runtime: " + runtime +
-                '}';
+        return "**********************************" +
+                "\nMovie name: " + name +
+                ",\nGenre: " + genre +
+                ",\nYear: " + year +
+                ",\nRating: " + rating +
+                ",\nDirector: " + director +
+                ",\nWriter: " + writer +
+                ",\nRuntime: " + runtime +
+                "\n**********************************";
     }
 }
